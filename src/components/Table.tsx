@@ -9,11 +9,6 @@ const SongTable = ({ data }) => {
     DateStreamed: string; // Assuming it's an ISO date string
     StreamCount: number;
   };
-  type SortConfig = {
-    key: "DateStreamed" | "StreamCount";
-    direction: "ascending" | "descending";
-  };
-  
   
   const [filterText, setFilterText] = useState("");
 
@@ -105,7 +100,7 @@ const SongTable = ({ data }) => {
             ))
           ) : (
             <tr>
-              <td colSpan="5" className="text-center py-4 text-gray-500">
+              <td colSpan={5} className="text-center py-4 text-gray-500">
                 No matching results found.
               </td>
             </tr>
