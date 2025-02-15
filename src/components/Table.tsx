@@ -57,7 +57,7 @@ const SongTable = ({ data }) => {
       </div>
 
       {/* Table */}
-      <table className="min-w-full table-auto border border-gray-300">
+      <table className="min-w-full table-auto border-[1px] border-gray-800">
         <thead>
           <tr className="bg-blue-500">
             <th className="px-4 py-2">Song Name</th>
