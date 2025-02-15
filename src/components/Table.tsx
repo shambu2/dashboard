@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Search } from "lucide-react";
 const SongTable = ({ data }) => {
   const [sortConfig, setSortConfig] = useState({
     key: "DateStreamed",
     direction: "ascending",
   });
+  type DataItem = {
+    DateStreamed: string; // Assuming it's an ISO date string
+    StreamCount: number;
+  };
+  type SortConfig = {
+    key: "DateStreamed" | "StreamCount";
+    direction: "ascending" | "descending";
+  };
+  
+  
   const [filterText, setFilterText] = useState("");
 
   // Function to toggle sorting
@@ -24,11 +34,11 @@ const SongTable = ({ data }) => {
   );
 
   // Sorting Logic
-  const sortedData = [...filteredData].sort((a, b) => {
+  const sortedData = [...filteredData].sort((a:DataItem, b:DataItem) => {
     if (sortConfig.key === "DateStreamed") {
       return sortConfig.direction === "ascending"
-        ? new Date(a.DateStreamed) - new Date(b.DateStreamed)
-        : new Date(b.DateStreamed) - new Date(a.DateStreamed);
+        ? new Date(a.DateStreamed).getTime() - new Date(b.DateStreamed).getTime()
+        : new Date(b.DateStreamed).getTime() - new Date(a.DateStreamed).getTime();
     }
     if (sortConfig.key === "StreamCount") {
       return sortConfig.direction === "ascending"
