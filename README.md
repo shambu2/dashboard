@@ -2,6 +2,8 @@
 
 This project is a React application that utilizes **ShadCN UI** components and **Tailwind CSS** for styling. Follow the instructions below to set up the project locally.
 
+![Project Screenshot](./public/image1.png)
+
 ## Features
 - **ShadCN UI**: Pre-built UI components for a ui design.
 - **Tailwind CSS**: Utility-first CSS framework for rapid styling.
